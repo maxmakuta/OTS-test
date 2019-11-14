@@ -1,0 +1,34 @@
+<!-- 3. Нужно написать скрипт на веб-странице, который должен обмениваться данными с сервером. При этом нужно послать два разных xhr-запроса подряд, а затем выполнить какой-то код. 
+
+Задача: написать пример кода, который отправит на сервер два асинхронных запроса и выведет один раз после получения обоих ответов в консоль сообщение “оба ответа получены”.
+ -->
+
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset= "utf-8">
+		<title>TEST</title> 			
+		
+		
+	</head>
+
+	<body>
+	
+<script>
+'use strict';
+
+Promise.all([
+ 	fetch('http://api.openweathermap.org/data/2.5/weather?q=Minsk,by&units=metric&APPID=875012f111377f30bfe2073d73e59ee8'),
+  	fetch('http://api.openweathermap.org/data/2.5/weather?q=Minsk,by&units=metric&APPID=875012f111377f30bfe2073d73e59ee8')
+]).then(
+  result => console.log("Оба ответа получены"),
+  error => alert("Ошибка: " + error.message) 
+)
+  	</script>		
+	
+	</body>
+	
+</html>
+
+
